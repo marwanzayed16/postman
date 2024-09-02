@@ -19,6 +19,11 @@ pm.sendRequest("http://localhost:8000/token", function (err, response) {
         value: data.token
     });
 
+    pm.request.headers.add({
+        key: 'accept',
+        value: "application/json"
+    });
+
     pm.environment.set("csrf", data.token);
 });
 ```
